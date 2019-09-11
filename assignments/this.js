@@ -59,7 +59,7 @@ const person = {
 
 someFunc.call(person); // invoking the f() here. .call passes arg's one by one. //
 someFunc.apply(person); // .apply passes arg's as an array //
-otherFunc = someFunc.bind(person); //bind creates a new f() that can be called later //
-otherFunc(); 
+// otherFunc = someFunc.bind(person); //bind creates a new f() that can be called later //
+// otherFunc(); 
 
 //bind is used to create a new f() that's perm. bound to a .this value //

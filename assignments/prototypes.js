@@ -35,10 +35,10 @@ function CharacterStats(charStatAtt) {
   GameObject.call(this, charStatAtt);
   this.healthPoints = charStatAtt.healthPoints,
   takeDamage = function() {
-    return `<object name> took damage`;
+    return `${this.name} took damage`;
   }
 }
-
+ 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -55,7 +55,7 @@ function Humanoid(human) {
   this.weapons = human.weapons,
   this.language = human.language,
   greet = function() {
-    return `<object name> offers a greeting in <object language`;
+    return `${this.name} offers a greeting in ${this.language}`;
 
 }
  
@@ -134,3 +134,36 @@ function Humanoid(human) {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+    function Villian(vile) =new Humanoid ({
+    Humanoid.call(this, vile);
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 2,
+      height: 4,
+    },
+      weapons: [
+        'bowstaff',
+        'uppercut'
+      ],
+     language: 'common tongue',
+  });
+
+  function Hero(shero) = new Humanoid ({
+    Humanoid.call(this, shero);
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 1,
+      height: 3,
+    },
+      weapons: [
+        'RBF'
+        'street-foo'
+      ],
+      language: 'elvish',
+    });
+
+
+  
