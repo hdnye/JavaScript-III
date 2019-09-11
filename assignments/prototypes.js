@@ -135,35 +135,14 @@ function Humanoid(human) {
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-    function Villian(vile) =new Humanoid ({
+    function Villian(vile) {
     Humanoid.call(this, vile);
-    createdAt: new Date(),
-    dimensions: {
-      length: 1,
-      width: 2,
-      height: 4,
-    },
-      weapons: [
-        'bowstaff',
-        'uppercut'
-      ],
-     language: 'common tongue',
-  });
+      
+    }
 
-  function Hero(shero) = new Humanoid ({
+  function Hero(shero) {
     Humanoid.call(this, shero);
-    createdAt: new Date(),
-    dimensions: {
-      length: 1,
-      width: 1,
-      height: 3,
-    },
-      weapons: [
-        'RBF'
-        'street-foo'
-      ],
-      language: 'elvish',
-    });
+  }
 
 
   
