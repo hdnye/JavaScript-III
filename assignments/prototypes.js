@@ -23,7 +23,7 @@ function GameObject(attributes) {
 }
 GameObject.prototype.destroy = function() {
      return `${this.name} was removed from the game`;
-    
+}; 
 /*
   === CharacterStats ===
   * healthPoints
@@ -33,12 +33,13 @@ GameObject.prototype.destroy = function() {
 
 function CharacterStats(charStatAtt) {
   GameObject.call(this, charStatAtt);
-  this.healthPoints = charStatAtt.healthPoints,
-  takeDamage = function() {
-    return `${this.name} took damage`;
-  }
-}
+  this.healthPoints = charStatAtt.healthPoints
+ }
  
+ CharacterStats.prototype = Object.create(GameObject.prototype);
+  CharacterStats.prototype.takeDamage = function() {
+    return `${this.name} took damage`; 
+  };
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -53,12 +54,12 @@ function Humanoid(human) {
   CharacterStats.call(this, human);
   this.team = human.team,
   this.weapons = human.weapons,
-  this.language = human.language,
-  greet = function() {
-    return `${this.name} offers a greeting in ${this.language}`;
-
+  this.language = human.language
 }
-
+  Humanoid.prototype = Object.create(CharacterStats.prototype);
+  Humanoid.prototype.greet = function() {
+    return `${this.name} offers a greeting in ${this.language}`;
+  };
  
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -139,7 +140,7 @@ function Humanoid(human) {
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-    function Villian(vile) {
+    function Villain(vile) {
       Humanoid.call(this, vile);
     }
 
@@ -147,7 +148,7 @@ function Humanoid(human) {
       Humanoid.call(this, shero);
     }
 
-    const evildoer = new Villian ({
+    const evildoer = new Villain ({
       createdAt: new Date(),
       dimensions: {
       length: 1,
@@ -161,7 +162,7 @@ function Humanoid(human) {
         'Bow-Staff',
         'Halitosis',
       ],
-      language: 'Brah',
+      language: 'Brah'
 
     });
 
@@ -179,5 +180,5 @@ function Humanoid(human) {
           'Bow',
           'Dagger',
         ],
-        language: 'Klingon',
+        language: 'Klingon'
     });
