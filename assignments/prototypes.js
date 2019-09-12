@@ -58,6 +58,7 @@ function Humanoid(human) {
     return `${this.name} offers a greeting in ${this.language}`;
 
 }
+
  
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -128,7 +129,10 @@ function Humanoid(human) {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-
+  console.log(evildoer.createdAt);
+  console.log(dogooder.createdAt);
+  console.log(dogooder.takeDamage());
+  console.log(evildoer.destroy());
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
@@ -136,13 +140,44 @@ function Humanoid(human) {
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
     function Villian(vile) {
-    Humanoid.call(this, vile);
-      
+      Humanoid.call(this, vile);
     }
 
-  function Hero(shero) {
-    Humanoid.call(this, shero);
-  }
+    function Hero(shero) {
+      Humanoid.call(this, shero);
+    }
 
+    const evildoer = new Villian ({
+      createdAt: new Date(),
+      dimensions: {
+      length: 1,
+      width: 2,
+      height: 4,
+      },
+      healthPoints: 10,
+      name: 'Jeff',
+      team: 'Skull City Rebels',
+      weapons: [
+        'Bow-Staff',
+        'Halitosis',
+      ],
+      language: 'Brah',
 
-  
+    });
+
+    const dogooder = new Hero ({
+      createdAt: new Date(),
+      dimensions: {
+        length: 1,
+        width: 2,
+        height: 4,
+        },
+        healthPoints: 10,
+        name: 'She-ra',
+        team: 'Forest Kingdom',
+        weapons: [
+          'Bow',
+          'Dagger',
+        ],
+        language: 'Klingon',
+    });
